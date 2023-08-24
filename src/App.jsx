@@ -3,10 +3,13 @@ import "./App.css";
 //const CAT_ENDPOINT_IMAGE_URL=`https://cataas.com/cat/says/${firstWord}?size=50&color=red&json=true`;
 const CAT_ENDPOINT__RAMDOM_FACT = `https://catfact.ninja/fact`;
 const CAT_PREFIX_IMAGE_URL = "https://cataas.com";
+
 export function App() {
+    
   const [fact, setFact] = useState();
   const [imageUrl, setImageUrl] = useState();
-//para recuperar la cita al cargar la pagina
+
+  //para recuperar la cita al cargar la pagina
   useEffect(() => {
     return () => {
       fetch(CAT_ENDPOINT__RAMDOM_FACT)
@@ -19,23 +22,22 @@ export function App() {
   }, []);
   //para recuperar la imagen cada vex que tenemos una cita nueva
   useEffect(() => {
-            if(!fact) return;
-             //const firstWord = fact.split(' ')[0];
-          //las tres primeras palabras
-          const threeFirstWord = fact.split(" ").slice(0, 3).join(" ");
-         
-          //console.log(threeFirstWord);
+    if (!fact) return;
+    //const firstWord = fact.split(' ')[0];
+    //las tres primeras palabras
+    const threeFirstWord = fact.split(" ").slice(0, 3).join(" ");
 
-          fetch(
-            `https://cataas.com/cat/says/${threeFirstWord}?size=50&color=red&json=true`
-          )
-            .then((res) => res.json())
-            .then((response) => {
-              const { url } = response;
-              setImageUrl(url);
-            });
+    //console.log(threeFirstWord);
+
+    fetch(
+      `https://cataas.com/cat/says/${threeFirstWord}?size=50&color=red&json=true`
+    )
+      .then((res) => res.json())
+      .then((response) => {
+        const { url } = response;
+        setImageUrl(url);
+      });
   }, [fact]);
-  
 
   return (
     <main>
