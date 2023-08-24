@@ -19,7 +19,8 @@ export function App() {
       getImageFact().then(newImageUrl => setImageUrl(newImageUrl));
   }, [fact]);*/
   const {imageUrl} = useCatImage({fact});
-
+  console.log(imageUrl);
+  
   const handleClick = async () => {
     const newFact = await getRamdomFact();
     setFact(newFact);

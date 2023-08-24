@@ -1,15 +1,15 @@
 import { getImageFact } from "../facts";
 import { useState ,useEffect} from "react";
 
-export function useCatImage({fact}){
+export const useCatImage=(initialState={fact})=>{
 
-    const [imageUrl, setImageUrl] = useState();
+    const [imageUrl, setImageUrl] = useState(initialState);
 
     useEffect(() => {
-        if (!fact) return;
+        if (!initialState) return;
           getImageFact().then(newImageUrl => setImageUrl(newImageUrl));
-      }, [fact]);
+      }, []);
 
-      return imageUrl;
+      return {imageUrl};
 
 }
