@@ -1,6 +1,6 @@
 import { getImageFact, getRamdomFact } from "../facts";
 import { useState, useEffect } from "react";
-
+//for get image and refresh image
 export const useCatImage = ({ fact }) => {
   const [imageUrl, setImageUrl] = useState({ fact });
   useEffect(() => {
@@ -10,15 +10,15 @@ export const useCatImage = ({ fact }) => {
 
   return { imageUrl };
 };
-
+//for get the Fact
 export const useCatFact = () => {
   const [fact, setFact] = useState();
 
-  const refreshFact = ()=>{
+  const refreshFact = () => {
     getRamdomFact().then((newFact) => setFact(newFact));
-  }
+  };
 
-  useEffect( refreshFact , []);
+  useEffect(refreshFact, []);
 
-  return {fact , refreshFact};
+  return { fact, refreshFact };
 };
