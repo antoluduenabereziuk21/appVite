@@ -19,20 +19,14 @@ export const getRamdomFact = async ()=>{
     const { fact } = data;
     return fact;
 }
-//obtenermos las tres primeras palabras
-export const getThreeFirstWordsFact = async ()=>{
-    const res = await fetch(CAT_ENDPOINT__RAMDOM_FACT);
-    const data = await res.json();
-    const { fact } = data;
-    const threeFirstWord = fact.split(" ").slice(0, 3).join(" ");
-    return threeFirstWord;
-}
 
-//se la adicionamos al endpoint
-const CAT_ENDPOINT_IMAGE_URL=`https://cataas.com/cat/says/${getThreeFirstWordsFact()}?size=50&color=red&json=true`;
-//pedimos la imagen con las tres primeras palabras
-export const getImageFact = async ()=>{   
+export const getImageFact = async ({fact})=>{  
+
+    const threeFirstWord = fact.split(" ").slice(0, 3).join(" ");
+
+    const CAT_ENDPOINT_IMAGE_URL=`https://cataas.com/cat/says/${threeFirstWord}?size=50&color=red&json=true`;
     const res = await fetch(CAT_ENDPOINT_IMAGE_URL);
+
     const data = await res.json();
     const {url}= data;
     return url;

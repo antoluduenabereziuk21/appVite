@@ -11,6 +11,7 @@ export function App() {
   //para recuperar la cita al cargar la pagina
   useEffect(() => {
     getRamdomFact().then(newFact => setFact(newFact));
+    
   }, []);
 
   //para recuperar la imagen cada vex que tenemos una cita nueva
@@ -19,7 +20,6 @@ export function App() {
       getImageFact().then(newImageUrl => setImageUrl(newImageUrl));
   }, [fact]);*/
   const {imageUrl} = useCatImage({fact});
-  console.log(imageUrl);
   
   const handleClick = async () => {
     const newFact = await getRamdomFact();
