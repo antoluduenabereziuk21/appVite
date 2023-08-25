@@ -8,7 +8,7 @@ export const useCatImage = ({ fact }) => {
     if (!fact) return;
     getImageFact({ fact }).then((newImageUrl) => setImageUrl(newImageUrl));
   }, [fact]);
-
+  //cancatenamos el prefix con la url s
   return { imageUrl:`${CAT_PREFIX_IMAGE_URL}${imageUrl}` };
 };
 //for get the Fact

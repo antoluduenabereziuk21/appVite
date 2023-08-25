@@ -1,6 +1,5 @@
 
 import "./App.css";
-import { Otro } from "./Components/otro.component";
 import { useCatFact, useCatImage } from "./hooks/Custom.hooks";
 
 
@@ -29,10 +28,6 @@ export function App() {
         )}
       </section>
       <button onClick={handleClick}>new Fact</button>
-      <Otro/>
-      <Otro/>
-      <Otro/>
-      <Otro/>
     </main>
   );
 }
