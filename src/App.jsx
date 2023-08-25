@@ -1,29 +1,30 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { getImageFact, getPrefixUrl, getRamdomFact } from "./facts";
-import { useCatImage } from "./hooks/Custom.hooks";
+import { useCatFact, useCatImage } from "./hooks/Custom.hooks";
 
 
 
 export function App() {
-  const [fact, setFact] = useState();
-
-  //para recuperar la cita al cargar la pagina
+  //const [fact, setFact] = useState();
+  const {fact , refreshFact}= useCatFact();
+  const {imageUrl} = useCatImage({fact});
+  /*
   useEffect(() => {
     getRamdomFact().then(newFact => setFact(newFact));
     
   }, []);
-
+  */
   //para recuperar la imagen cada vex que tenemos una cita nueva
   /*useEffect(() => {
     if (!fact) return;
       getImageFact().then(newImageUrl => setImageUrl(newImageUrl));
   }, [fact]);*/
-  const {imageUrl} = useCatImage({fact});
   
   const handleClick = async () => {
-    const newFact = await getRamdomFact();
-    setFact(newFact);
+    refreshFact();
+    /*const newFact = await getRamdomFact();
+    setFact(newFact);*/
   };
 
   return (
