@@ -1,5 +1,5 @@
 const CAT_ENDPOINT__RAMDOM_FACT = `https://catfact.ninja/fact`;
-const CAT_PREFIX_IMAGE_URL = "https://cataas.com";
+
 /*Podemos tener una funcion o tener una funcion async
 
 export const getRamdomFact = ()=>{
@@ -30,8 +30,4 @@ export const getImageFact = async ({fact})=>{
     const data = await res.json();
     const {url}= data;
     return url;
-}
-
-export const getPrefixUrl = ()=>{
-    return CAT_PREFIX_IMAGE_URL;
 }

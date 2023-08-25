@@ -1,6 +1,6 @@
 
 import "./App.css";
-import {  getPrefixUrl, } from "./facts";
+import { Otro } from "./Components/otro.component";
 import { useCatFact, useCatImage } from "./hooks/Custom.hooks";
 
 
@@ -23,12 +23,16 @@ export function App() {
         {fact && <p>{fact}</p>}
         {imageUrl && (
           <img
-            src={`${getPrefixUrl()}${imageUrl}`}
+            src={`${imageUrl}`}
             alt={`Image extracted using the first three words for ${fact}`}
           />
         )}
       </section>
       <button onClick={handleClick}>new Fact</button>
+      <Otro/>
+      <Otro/>
+      <Otro/>
+      <Otro/>
     </main>
   );
 }
